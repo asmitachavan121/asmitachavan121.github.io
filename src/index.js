@@ -57,7 +57,7 @@ io.on('connection', (socket) => {
 
         // console.log(message)
         callback('')
-        socket.emit('message', generateMessage('Me', message))
+        socket.emit('myMessage', generateMessage('Me', message))
         socket.broadcast.to(user.room).emit('message', generateMessage(user.username, message))
     })
 
@@ -71,7 +71,7 @@ io.on('connection', (socket) => {
             return error
         }
 
-        socket.emit('locationMessage',generateLocationMessage('me', locationURL))
+        socket.emit('myLocationMessage',generateLocationMessage('me', locationURL))
         socket.broadcast.to(user.room).emit('locationMessage',generateLocationMessage(user.username, locationURL))
         callback('location shared successfully!')
 

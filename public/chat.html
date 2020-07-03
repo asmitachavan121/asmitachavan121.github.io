@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>Chat app</title>
         <link rel="icon" href="/img/favicon.png">
-        <link rel="stylesheet" href="./css/styles.min.css"> 
+        <link rel="stylesheet" href="./css/styles.css"> 
     </head>
     <body>
     
@@ -33,6 +33,16 @@
                 <p>{{message}}</p>    
             </div>
         </script>
+
+        <script id="my-message-template" type="text/html">
+            <div class="my__message">
+                <p>
+                    <span class="message__name">{{username}}</span>
+                    <span class="message__meta">{{createdAt}}</span>
+                </p>
+                <p>{{message}}</p>    
+            </div>
+        </script>
     
         <script id="url-template" type="text/html">
             <div class="message">
@@ -43,6 +53,14 @@
                 <p> <a href = {{url}} target="_blank">my current location</a>
                 </p>
             </div>
+            <!-- <div class="my__message">
+                <p>
+                    <span class="message__name">{{my_username}}</span>
+                    <span class="message__meta">{{my_createdAt}}</span>
+                </p>
+                <p> <a href = {{my_url}} target="_blank">my current location</a>
+                </p>
+            </div> -->
             
         </script>
 

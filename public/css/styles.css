@@ -115,7 +115,15 @@ button:disabled {
 /* Message Styles */
 
 .message {
-    margin-bottom: 16px;   
+    margin-bottom: 16px; 
+    /* justify-content: right;  
+    align-items: right; */
+    /* text-align: right; */
+}
+
+.my__message {
+    margin-bottom: 16px;
+    text-align: right;
 }
 
 .message__name {

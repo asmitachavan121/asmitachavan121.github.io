@@ -12,6 +12,7 @@ const $messages = document.querySelector('#messages')
 const messageTemplate = document.querySelector('#message-template').innerHTML
 const urlTemplate = document.querySelector('#url-template').innerHTML
 const sidebarTemplate = document.querySelector('#sidebar-template').innerHTML
+const myMessageTemplate = document.querySelector('#my-message-template').innerHTML
 
 //Options
 // console.log(Qs.parse((location.search)).stringify)
@@ -66,7 +67,31 @@ socket.on('message', (msg) => {
     autoScroll()
 })
 
+socket.on('myMessage', msg => {
+    console.log(msg)
+    const timeFormat = "h:mm A"     //"D.MMM.ddd.YY h:m:s a"
+    const html = Mustache.render(myMessageTemplate,{
+        username: msg.username,
+        message: msg.text,
+        createdAt: moment(msg.createdAt).format(timeFormat)
+    })
+    $messages.insertAdjacentHTML('beforeend',html)
+    autoScroll()
+})
+
 socket.on('locationMessage', locationMessage => {
+    console.log(locationMessage)
+    const timeFormat = "h:mm a"     //"D.MMM.ddd.YY h:m:s a"
+    const html = Mustache.render(urlTemplate, {
+        username: locationMessage.username,
+        url: locationMessage.url,
+        createdAt: moment(locationMessage.createdAt).format(timeFormat)
+    })
+    $messages.insertAdjacentHTML('beforeend', html)
+
+    autoScroll()
+})
+socket.on('myLocationMessage', locationMessage => {
     console.log(locationMessage)
     const timeFormat = "h:mm a"     //"D.MMM.ddd.YY h:m:s a"
     const html = Mustache.render(urlTemplate, {
