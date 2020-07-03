@@ -10,7 +10,9 @@
     
         <div class="chat">
             <div class="chat__sidebar" id="sidebar">
-    
+                <form>
+                    <button>Logout</button>
+                </form>
             </div>
             <div class="chat__main">
                 <div id="messages" class="chat__messages"></div>
@@ -43,6 +45,16 @@
                 <p>{{message}}</p>    
             </div>
         </script>
+
+        <script id="sys-message-template" type="text/html">
+            <div class="sys__message">
+                <p>
+                    <span class="message__name">{{username}}</span>
+                    <span class="message__meta">{{createdAt}}</span>
+                </p>
+                <p>{{message}}</p>    
+            </div>
+        </script>
     
         <script id="url-template" type="text/html">
             <div class="message">
@@ -53,14 +65,17 @@
                 <p> <a href = {{url}} target="_blank">my current location</a>
                 </p>
             </div>
-            <!-- <div class="my__message">
+           
+        </script>
+        <script id="my-url-template" type="text/html">
+             <div class="my__message">
                 <p>
-                    <span class="message__name">{{my_username}}</span>
-                    <span class="message__meta">{{my_createdAt}}</span>
+                    <span class="message__name">{{username}}</span>
+                    <span class="message__meta">{{createdAt}}</span>
                 </p>
-                <p> <a href = {{my_url}} target="_blank">my current location</a>
+                <p> <a href = {{url}} target="_blank">my current location</a>
                 </p>
-            </div> -->
+            </div>
             
         </script>
 
@@ -72,6 +87,10 @@
                     <li>{{username}}</li>
                 {{/users}}
             </ul>
+            <form action="/">
+                <button>Leave</button>
+            </form>
+           
         </script>
     
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>

@@ -32,8 +32,8 @@ io.on('connection', (socket) => {
             return callback(error)
         }
         socket.join(user.room)
-        socket.emit('message', generateMessage(msg))
-        socket.broadcast.to(user.room).emit('message', generateMessage(`${user.username} has joined!`))
+        socket.emit('sysMessage', generateMessage(undefined,msg))
+        socket.broadcast.to(user.room).emit('sysMessage', generateMessage(undefined,`${user.username} has joined!`))
 
         io.to(user.room).emit('roomData',{
             room: user.room,
@@ -86,7 +86,7 @@ io.on('connection', (socket) => {
         //     })
         // }
         if(!error) {
-            io.to(user.room).emit('message',generateMessage(`${user.username} has left!`))
+            io.to(user.room).emit('sysMessage',generateMessage(undefined,`${user.username} has left!`))
             io.to(user.room).emit('roomData',{
                 room: user.room,
                 users: getUsersInRoom(user.room)

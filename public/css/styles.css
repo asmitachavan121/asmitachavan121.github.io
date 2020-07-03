@@ -73,6 +73,12 @@ button:disabled {
     padding: 24px;
     width: 250px;
 }
+.chat__sidebar button {
+    position: absolute;
+    bottom: 0px;
+    flex-grow: 1;
+    margin: 16px 16px 32px 16px;
+}
 
 .centered-form button {
     width: 100%;
@@ -124,6 +130,12 @@ button:disabled {
 .my__message {
     margin-bottom: 16px;
     text-align: right;
+}
+
+
+.sys__message {
+    margin-bottom: 16px;
+    text-align: center;
 }
 
 .message__name {
