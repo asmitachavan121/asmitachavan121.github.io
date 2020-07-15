@@ -13,8 +13,9 @@ Dependencies are listed in package.json file.
 * socket.io
 * bad-words
 
+Clone the repository using git command `git clone https://github.com/asmitachavan121/chat-app.git`. A new folder named chat-app will be created in the same directory where you run above command. Go to the chat-app folder using `cd chat-app` command.
 Install npm in your distro. You can install the dependencies by running 
-`npm install ` in the root folder of the application.
+`npm install ` in the root folder of the application, in this case it is chat-app. Run `node src/index.js` to run the application. Your app is up and running!  
 
 ### Directory Structure
 - `src/` - source folder which contains all the server-side source code
